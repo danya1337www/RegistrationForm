@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     // MARK: - IB Outlet
     
@@ -54,22 +54,52 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func forgotUserButtonTapped() {
-        let alert = UIAlertController(title: "Remind UserName", message: "UserName is : Danil", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        let alert = UIAlertController(
+            title: "Remind UserName",
+            message: "UserName is : Danil",
+            preferredStyle: .alert
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: "Ok",
+                style: .default,
+                handler: nil
+            )
+        )
         present(alert, animated: true, completion: nil)
     }
     
     @IBAction func forgotPasswordButtonTapped() {
-        let alert = UIAlertController(title: "Remind Password", message: "Password is : 1337", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        let alert = UIAlertController(
+            title: "Remind Password",
+            message: "Password is : 1337",
+            preferredStyle: .alert
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: "Ok",
+                style: .default,
+                handler: nil
+            )
+        )
         present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Methods
     
     func showAlert(message: String) {
-        let alert = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        let alert = UIAlertController(
+            title: "Login Failed",
+            message: message,
+            preferredStyle: .alert
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: "Ok",
+                style: .default,
+                handler: nil
+            )
+        )
         present(alert, animated: true, completion: nil)
     }
     
