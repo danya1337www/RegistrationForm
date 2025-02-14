@@ -25,10 +25,10 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loginSegue" {
-            if let destinationVC = segue.destination as? SecondViewController {
-                destinationVC.modalPresentationStyle = .fullScreen
-                destinationVC.receivedLoginText = loginTextField.text
+            if segue.identifier == "loginSegue" {
+                if let destinationVC = segue.destination as? SecondViewController {
+                    destinationVC.modalPresentationStyle = .fullScreen
+                    destinationVC.receivedLoginText = loginTextField.text
             }
         }
     }
@@ -37,8 +37,8 @@ final class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped() {
         guard let username = loginTextField.text, !username.isEmpty,
-        let password = passwordTextField.text, !password.isEmpty else {
-            showAlert(message: "Please fill in all fields")
+              let password = passwordTextField.text, !password.isEmpty else {
+            showAlert(title: "Login error", message: "Please fill in all fields")
             return
         }
         
@@ -48,48 +48,48 @@ final class LoginViewController: UIViewController {
         if username == correctUserName && password == correctPassword {
             performSegue(withIdentifier: "loginSegue", sender: nil)
         } else {
-            showAlert(message: "Invalid username or password")
+            showAlert(
+                title: "Incorrect data",
+                message: "Invalid username or password"
+            )
         }
         
     }
     
     @IBAction func forgotUserButtonTapped() {
-        let alert = UIAlertController(
+        showAlert(
             title: "Remind UserName",
-            message: "UserName is : Danil",
-            preferredStyle: .alert
+            message: "UserName is: Danil"
         )
-        alert.addAction(
-            UIAlertAction(
-                title: "Ok",
-                style: .default,
-                handler: nil
-            )
-        )
-        present(alert, animated: true, completion: nil)
     }
-    
-    @IBAction func forgotPasswordButtonTapped() {
-        let alert = UIAlertController(
-            title: "Remind Password",
-            message: "Password is : 1337",
-            preferredStyle: .alert
-        )
-        alert.addAction(
-            UIAlertAction(
-                title: "Ok",
-                style: .default,
-                handler: nil
+        
+        @IBAction func forgotPasswordButtonTapped() {
+            showAlert(
+                title: "Remind Password",
+                message: "Password is: 1337"
             )
-        )
-        present(alert, animated: true, completion: nil)
-    }
+        }
+        
+        // MARK: - Private Methods
+        
+        private func updateUI() {
+            loginTextField.placeholder = "User Name"
+            loginTextField.clearButtonMode = .whileEditing
+            passwordTextField.placeholder = "Password"
+            passwordTextField.clearButtonMode = .whileEditing
+            passwordTextField.isSecureTextEntry = true
+            
+            
+            loginButton.setTitle("Log In", for: .normal)
+            forgotUserNameButton.setTitle("Forgot User Name?", for: .normal)
+            forgotUserNameButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+            forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
+            forgotPasswordButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        }
     
-    // MARK: - Methods
-    
-    func showAlert(message: String) {
+        private func showAlert(title: String, message: String) {
         let alert = UIAlertController(
-            title: "Login Failed",
+            title: title,
             message: message,
             preferredStyle: .alert
         )
@@ -102,23 +102,4 @@ final class LoginViewController: UIViewController {
         )
         present(alert, animated: true, completion: nil)
     }
-    
-    // MARK: - Private Methods
-    
-    private func updateUI() {
-        loginTextField.placeholder = "User Name"
-        loginTextField.clearButtonMode = .whileEditing
-        passwordTextField.placeholder = "Password"
-        passwordTextField.clearButtonMode = .whileEditing
-        passwordTextField.isSecureTextEntry = true
-        
-        
-        loginButton.setTitle("Log In", for: .normal)
-        forgotUserNameButton.setTitle("Forgot User Name?", for: .normal)
-        forgotUserNameButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
-        forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
-        forgotPasswordButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
-    }
-
 }
-

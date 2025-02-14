@@ -22,7 +22,7 @@ final class SecondViewController: UIViewController {
         super.viewDidLoad()
         updateUI()
     }
-    
+        
     // MARK: - IB Action
     
     @IBAction func logOut() {
@@ -48,5 +48,7 @@ final class SecondViewController: UIViewController {
         logOutButton.setTitle("Log Out", for: .normal)
         logOutButton.setTitleColor(.black, for: .normal)
         logOutButton.role = .destructive
+        welcomeLabel.textColor = .black
+
     }
 }
