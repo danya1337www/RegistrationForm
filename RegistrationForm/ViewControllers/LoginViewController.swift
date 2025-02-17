@@ -9,6 +9,8 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
+    var name: String?
+    
     // MARK: - IB Outlet
     
     @IBOutlet var loginTextField: UITextField!
@@ -25,14 +27,18 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "loginSegue" {
-                if let destinationVC = segue.destination as? SecondViewController {
-                    destinationVC.modalPresentationStyle = .fullScreen
-                    destinationVC.receivedLoginText = loginTextField.text
-            }
+        guard segue.identifier == "loginSegue",
+              let tabBarVC = segue.destination as? UITabBarController else { return }
+        
+        if let secondVC = tabBarVC.viewControllers?[0] as? SecondViewController {
+            secondVC.receivedLoginText = loginTextField.text
+        }
+        if let navVC = tabBarVC.viewControllers?[1] as? UINavigationController,
+           let secondVC = navVC.viewControllers.first as? SecondViewController {
+            secondVC.receivedLoginText = loginTextField.text
         }
     }
-    
+
     // MARK: - IB Actions
     
     @IBAction func loginButtonTapped() {
@@ -85,6 +91,7 @@ final class LoginViewController: UIViewController {
             forgotUserNameButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
             forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
             forgotPasswordButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+            
         }
     
         private func showAlert(title: String, message: String) {

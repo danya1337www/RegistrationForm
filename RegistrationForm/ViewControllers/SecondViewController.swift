@@ -21,6 +21,7 @@ final class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        navigationItem.title = receivedLoginText
     }
         
     // MARK: - IB Action
@@ -36,7 +37,7 @@ final class SecondViewController: UIViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
-            UIColor.red.cgColor,
+            UIColor.white.cgColor,
             UIColor.systemMint.cgColor
         ]
         gradientLayer.locations = [0.0, 1.0]
