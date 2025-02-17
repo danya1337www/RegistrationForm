@@ -160,23 +160,43 @@
             </objects>
             <point key="canvasLocation" x="4710" y="3.1690140845070425"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NavigationVC-->
         <scene sceneID="kcJ-tE-bJu">
             <objects>
-                <viewController id="SkT-qJ-rnv" customClass="UINavigationController" sceneMemberID="viewController">
+                <viewController id="SkT-qJ-rnv" customClass="NavigationVC" customModule="RegistrationForm" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="zcZ-Zo-Nue">
-                        <barButtonItem key="rightBarButtonItem" title="Bio" id="PBg-df-1Xx"/>
+                        <barButtonItem key="rightBarButtonItem" title="Bio" id="PBg-df-1Xx">
+                            <connections>
+                                <segue destination="A5t-0m-Wbu" kind="show" id="Ycl-Oq-fjU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZa-fE-wm9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5707.5" y="793.30985915492954"/>
+            <point key="canvasLocation" x="5636" y="793"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yip-aQ-ceG">
+            <objects>
+                <viewController id="A5t-0m-Wbu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ekk-ZN-2FB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VLK-kW-Gfa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QpD-X1-o1c"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLb-Pa-Bz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6623" y="792"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Naz-Ug-ro6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UGo-Ee-dWY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="S8q-d4-yvY"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Profile" image="person" catalog="system" id="S8q-d4-yvY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xmo-xp-PPm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>

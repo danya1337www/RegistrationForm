@@ -34,8 +34,8 @@ final class LoginViewController: UIViewController {
             secondVC.receivedLoginText = loginTextField.text
         }
         if let navVC = tabBarVC.viewControllers?[1] as? UINavigationController,
-           let secondVC = navVC.viewControllers.first as? SecondViewController {
-            secondVC.receivedLoginText = loginTextField.text
+           let NavigationVC = navVC.viewControllers.first as? NavigationVC {
+            NavigationVC.receivedName = loginTextField.text
         }
     }
 
@@ -79,16 +79,18 @@ final class LoginViewController: UIViewController {
         // MARK: - Private Methods
         
         private func updateUI() {
-            loginTextField.placeholder = "User Name"
+            loginTextField.text = "Danil"
             loginTextField.clearButtonMode = .whileEditing
-            passwordTextField.placeholder = "Password"
+            
+            passwordTextField.text = "1337"
             passwordTextField.clearButtonMode = .whileEditing
             passwordTextField.isSecureTextEntry = true
             
-            
             loginButton.setTitle("Log In", for: .normal)
+            
             forgotUserNameButton.setTitle("Forgot User Name?", for: .normal)
             forgotUserNameButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+            
             forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
             forgotPasswordButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
             
