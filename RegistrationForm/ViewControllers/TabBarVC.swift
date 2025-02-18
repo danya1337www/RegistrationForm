@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SecondViewController: UIViewController {
+final class TabBarVC: UIViewController {
     
     var receivedLoginText: String?
     
@@ -37,8 +37,8 @@ final class SecondViewController: UIViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
-            UIColor.white.cgColor,
-            UIColor.systemMint.cgColor
+            UIColor(red: 0.99, green: 0.94, blue: 0.91, alpha: 1.0).cgColor,
+            UIColor(red: 0.91, green: 0.86, blue: 0.97, alpha: 1.0).cgColor
         ]
         gradientLayer.locations = [0.0, 1.0]
         

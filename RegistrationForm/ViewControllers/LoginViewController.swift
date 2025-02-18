@@ -9,8 +9,6 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
-    var name: String?
-    
     // MARK: - IB Outlet
     
     @IBOutlet var loginTextField: UITextField!
@@ -30,9 +28,10 @@ final class LoginViewController: UIViewController {
         guard segue.identifier == "loginSegue",
               let tabBarVC = segue.destination as? UITabBarController else { return }
         
-        if let secondVC = tabBarVC.viewControllers?[0] as? SecondViewController {
+        if let secondVC = tabBarVC.viewControllers?[0] as? TabBarVC {
             secondVC.receivedLoginText = loginTextField.text
         }
+        
         if let navVC = tabBarVC.viewControllers?[1] as? UINavigationController,
            let NavigationVC = navVC.viewControllers.first as? NavigationVC {
             NavigationVC.receivedName = loginTextField.text
@@ -79,6 +78,16 @@ final class LoginViewController: UIViewController {
         // MARK: - Private Methods
         
         private func updateUI() {
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.frame = view.bounds
+            gradientLayer.colors = [
+                UIColor(red: 0.99, green: 0.94, blue: 0.91, alpha: 1.0).cgColor,
+                UIColor(red: 0.91, green: 0.86, blue: 0.97, alpha: 1.0).cgColor
+            ]
+            gradientLayer.locations = [0.0, 1.0]
+            
+            view.layer.insertSublayer(gradientLayer, at: 0)
+            
             loginTextField.text = "Danil"
             loginTextField.clearButtonMode = .whileEditing
             
