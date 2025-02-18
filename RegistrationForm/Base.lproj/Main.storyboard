@@ -346,7 +346,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VLK-kW-Gfa" firstAttribute="trailing" secondItem="oht-Au-723" secondAttribute="trailing" constant="50" id="HNg-oI-P4U"/>
-                            <constraint firstItem="VLK-kW-Gfa" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oht-Au-723" secondAttribute="bottom" constant="347" id="IQx-IZ-aF1"/>
+                            <constraint firstItem="VLK-kW-Gfa" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oht-Au-723" secondAttribute="bottom" constant="16" id="IQx-IZ-aF1"/>
                             <constraint firstItem="oht-Au-723" firstAttribute="top" secondItem="VLK-kW-Gfa" secondAttribute="top" constant="16" id="QuU-QM-mj7"/>
                             <constraint firstItem="oht-Au-723" firstAttribute="leading" secondItem="VLK-kW-Gfa" secondAttribute="leading" constant="50" id="X4o-7o-i1m"/>
                         </constraints>

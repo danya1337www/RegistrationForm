@@ -38,7 +38,6 @@ class BioNavigationController: UIViewController {
         textLabel.text =
         """
         Hi, my name is Danil Chekantsev. I'm currently studying iOS development, and this project has been a great learning experience for me. Through it, I've learned how to build a functional user interface using UIKit, manage screen transitions with segues, and work with various view controllers like UITabBarController and UINavigationController. I've also gained hands-on experience with implementing gradient backgrounds, handling user input, and passing data between controllers. This project has truly deepened my understanding of app development and has motivated me to keep exploring new challenges.
-
         """
     }
 }
